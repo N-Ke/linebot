@@ -2,8 +2,9 @@
 
 //チャンネルアクセストークン
 $channelAccessToken = 'QWMGeklEwfRuDHfBXvyPUkhHQmfwNBSmzlAWSRvJyJ7DAUyubIp9VtIClhljmx1MFBIK7/d8Cy0/m5tfiMOOy25S8Xc6IFH18smRC26ZuBXS5vb+PaMg7YuF0V76fDHm80Lx0pqsAzMkMo5a6KJXnQdB04t89/1O/w1cDnyilFU=';
-
+$ChannelSecret = '794d2ee18b69ac9a07f3c1f6aaceb3b7';
 //ユーザーからのメッセージ取得
+
 $inputData = file_get_contents('php://input');
 
 //受信したJSON文字列をデコードします
@@ -58,14 +59,16 @@ if ($eventType == 'message') {
 	//位置情報の場合
 	} elseif ($messageType == 'location') {
 
-		$response_format_text = [
+		$messageText = $jsonObj->{"events"}[0]->{"message"}->{"location"};
+
+		$response_format_text = array(
 		"type" => "text",
-		"text" => "aaaaa"
-		];
-		$post_data = [
+		"text" => "$messageText"
+		);
+		$post_data = array(
 		"replyToken" => $replyToken,
 		"messages" => $response_format_text
-		];
+		);
 
 	}
 }
