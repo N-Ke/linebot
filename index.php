@@ -63,7 +63,7 @@ if ($eventType == 'message') {
 
 		$response_format_text = array(
 		"type" => "text",
-		"text" => "$messageText"
+		"text" => $messageText
 		);
 		$post_data = array(
 		"replyToken" => $replyToken,
