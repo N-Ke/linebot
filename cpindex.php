@@ -21,3 +21,4 @@
             $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())  
         );
     }
+?>
