@@ -9,6 +9,11 @@ $inputData = file_get_contents('php://input');
 //受信したJSON文字列をデコードします
 $jsonObj = json_decode($inputData);
 
+$to   = $jsonObj->{"result"}[0]->{"content"}->{"from"};
+
+$text =  $jsonObj->{"result"}[0]->{"content"}->{"text"};
+
+
 //Webhook Eventのタイプを取得
 $eventType = $jsonObj->{"events"}[0]->{"type"};
 
@@ -16,6 +21,7 @@ $eventType = $jsonObj->{"events"}[0]->{"type"};
 //テキスト、画像、スタンプなどの場合「message」になります
 //他に、follow postback beacon などがあります
 if ($eventType == 'message') {
+
 
 	//メッセージタイプ取得
 	//ここで、受信したメッセージがテキストか画像かなどを判別できます
@@ -46,22 +52,21 @@ if ($eventType == 'message') {
 			"replyToken" => $replyToken,
 			"messages" => [$response_format_text]
 		];
-	}
+	
 	//上記以外のメッセージタイプ
 	//画像やスタンプなどの場合です
-	else {
+	//位置情報の場合
+	} elseif ($messageType == 'location') {
 
-		//返答準備1
 		$response_format_text = [
-			"type" => "text",
-			"text" => "メッセージ以外は受け取りません！"
+		"type" => "text",
+		"text" => "aaaaa"
+		];
+		$post_data = [
+		"replyToken" => $replyToken,
+		"messages" => $response_format_text
 		];
 
-		//返答準備2
-		$post_data = [
-			"replyToken" => $replyToken,
-			"messages" => [$response_format_text]
-		];
 	}
 }
 
