@@ -44,7 +44,7 @@ if ($eventType == 'message') {
 		//よくあるオウム返しでは、text に $messageText を入れればOKです
 		$response_format_text = [
 			"type" => "text",
-			"text" => $messageText
+			"text" => "正解です"
 		];
 
 		//返答準備2
@@ -57,13 +57,13 @@ if ($eventType == 'message') {
 	//上記以外のメッセージタイプ
 	//画像やスタンプなどの場合です
 	//位置情報の場合
-	} elseif ($messageType == 'location') {
+	} else {
 
 		$messageText = $jsonObj->{"events"}[0]->{"message"}->{"location"};
 
 		$response_format_text = array(
 		"type" => "text",
-		"text" => $messageText
+		"text" => "あああ"
 		);
 		$post_data = array(
 		"replyToken" => $replyToken,
