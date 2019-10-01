@@ -76,7 +76,15 @@ if (empty($data)) {
 $data = "空です";
 }
 			// メッセージを追加
-			$bot->add_text_builder($url);
+			$replyToken = $json_object->{"events"}[0]->{"replyToken"}; 
+$response = array(
+"type" => "text"
+"text" => $data
+);
+$post_data = array(
+"replyToken" => $replyToken,
+"message" => $response
+);
 		}
 
 		// 画像メッセージの追加
