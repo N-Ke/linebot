@@ -62,8 +62,8 @@ try {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
-			foreach ($locaation as $key => $value) {
-				$locaation_test .= $key . ":" . $value . "\n";
+			foreach ($locaation as $loco) {
+				$locaation_test .= $loco;
 			}
 			// メッセージを追加
 			$bot->add_text_builder($locaation_test);
@@ -386,8 +386,7 @@ try {
  * @param  array  $item_value_option 右テキストのオプション
  * @return [type]                    flexのbox_component
  */
-function create_item($item_name="",$item_value="",$item_name_options=array(),$item_value_option=array())
-{
+function create_item($item_name="",$item_value="",$item_name_options=array(),$item_value_option=array()) {
 	global $bot;
 
 	$flex_koumoku_texts = array();
@@ -400,7 +399,7 @@ function create_item($item_name="",$item_value="",$item_name_options=array(),$it
 	return $bot->create_box_component("horizontal",$flex_koumoku_texts);
 }
 
-function create_sample_flex(){
+function create_sample_flex() {
 	global $bot;
 	$flex_box_mein = array();
 	$flex_components = array();
@@ -434,7 +433,7 @@ function create_sample_flex(){
 	return $bot->create_bubble_container($bubble_blocks);
 }
 
-function create_sample_flex2(){
+function create_sample_flex2() {
 	global $bot;
 	$flex_box_mein = array();
 	$flex_components = array();
@@ -482,7 +481,7 @@ function create_sample_flex2(){
 }
 
 
-function create_sample_flex3($photo_url){
+function create_sample_flex3($photo_url) {
 	global $bot;
 	$flex_box_mein = array();
 	$flex_components = array();
@@ -517,7 +516,7 @@ function create_sample_flex3($photo_url){
 	return $bot->create_bubble_container($bubble_blocks);
 }
 
-function create_sample_flex4(){
+function create_sample_flex4() {
 	global $bot;
 	$flex_box_mein = array();
 	$flex_components = array();
@@ -548,7 +547,7 @@ function create_sample_flex4(){
 	return $bot->create_bubble_container($bubble_blocks);
 }
 
-function test_quick_action(){
+function test_quick_action() {
 	global $bot;
 	$actions = array();
 	$actions[] = $bot->create_quick_text_action("test","test_text");

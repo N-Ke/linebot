@@ -103,7 +103,7 @@ class LineBotClass extends LINEBot
 			// ビルダーストックを初期化
 			$this->builder_stok = array();
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
@@ -117,7 +117,7 @@ class LineBotClass extends LINEBot
 		// イベントがTextMessageのclassかチェック
 		if ($this->event instanceof TextMessage) {
 			return $this->event->getText();
-		}else{
+		} else {
 			$this->set_error("テキストメッセージではありません");
 			return false;
 		}
@@ -157,8 +157,7 @@ class LineBotClass extends LINEBot
 	 * スタンプのステッカーidとパッケージidを取得
 	 * @return array or false
 	 */
-	public function get_stamp_id()
-	{
+	public function get_stamp_id() {
 		// イベントがStickerMessageのclassかチェック
 		if ($this->event instanceof StickerMessage) {
 			$id_data = array();
@@ -175,8 +174,7 @@ class LineBotClass extends LINEBot
 	 * 位置情報のデータを取得
 	 * @return arrya or false
 	 */
-	public function get_location()
-	{
+	public function get_location() {
 		// イベントがLocationMessageのclassかチェック
 		if ($this->event instanceof LocationMessage) {
 			$location = array();
@@ -185,7 +183,7 @@ class LineBotClass extends LINEBot
 			$location['latitude'] = $this->event->getLatitude();
 			$location['longitude'] = $this->event->getLongitude();
 			return $location;
-		}else{
+		} else {
 			$this->set_error("位置情報ではありません");
 			return false;
 		}
@@ -195,8 +193,7 @@ class LineBotClass extends LINEBot
 	 * テキストのメッセージタイプか判定
 	 * @return boolean テキストならtrue それ以外ならfalse
 	 */
-	public function is_text_message_type()
-	{
+	public function is_text_message_type() {
 		return $this->get_message_type() === "text";
 	}
 
@@ -204,8 +201,7 @@ class LineBotClass extends LINEBot
 	 * 画像のメッセージタイプか判定
 	 * @return boolean 画像ならtrue それ以外ならfalse
 	 */
-	public function is_image_message_type()
-	{
+	public function is_image_message_type() {
 		return $this->get_message_type() === "image";
 	}
 
@@ -213,8 +209,7 @@ class LineBotClass extends LINEBot
 	 * 動画のメッセージタイプか判定
 	 * @return boolean 動画ならtrue それ以外ならfalse
 	 */
-	public function is_video_message_type()
-	{
+	public function is_video_message_type() {
 		return $this->get_message_type() === "video";
 	}
 
@@ -222,8 +217,8 @@ class LineBotClass extends LINEBot
 	 * 音声のメッセージタイプか判定
 	 * @return boolean 音声ならtrue それ以外ならfalse
 	 */
-	public function is_audio_message_type()
-	{
+	public function is_audio_message_type() {
+
 		return $this->get_message_type() === "audio";
 	}
 
@@ -231,8 +226,7 @@ class LineBotClass extends LINEBot
 	 * 位置情報のメッセージタイプか判定
 	 * @return boolean 位置情報ならtrue それ以外ならfalse
 	 */
-	public function is_location_message_type()
-	{
+	public function is_location_message_type() {
 		return $this->get_message_type() === "location";
 	}
 
@@ -240,8 +234,7 @@ class LineBotClass extends LINEBot
 	 * ファイルのメッセージタイプか判定
 	 * @return boolean ファイルならtrue それ以外ならfalse
 	 */
-	public function is_file_message_type()
-	{
+	public function is_file_message_type() {
 		return $this->get_message_type() === "file";
 	}
 
@@ -256,12 +249,11 @@ class LineBotClass extends LINEBot
 	 * location 位置情報
 	 * file      ファイル
 	 */
-	public function get_message_type()
-	{
+	public function get_message_type() {
 		// イベントがMessageEventのclassかチェック
 		if ($this->event instanceof MessageEvent) {
 			return $this->event->getMessageType();
-		}else{
+		} else {
 			$this->set_error("メッセージイベントではありません");
 			return false;
 		}
@@ -271,12 +263,11 @@ class LineBotClass extends LINEBot
 	 * メッセージidを取得
 	 * @return string メッセージid
 	 */
-	public function get_message_id()
-	{
+	public function get_message_id() {
 		// イベントがMessageEventのclassかチェック
 		if ($this->event instanceof MessageEvent) {
 			return $this->event->getMessageId();
-		}else{
+		} else {
 			$this->set_error("メッセージイベントではありません");
 			return false;
 		}
@@ -286,8 +277,7 @@ class LineBotClass extends LINEBot
 	 * メッセージのイベントタイプか判定
 	 * @return boolean メッセージならtrue それ以外ならfalse
 	 */
-	public function is_message_event_type()
-	{
+	public function is_message_event_type() {
 		return $this->get_event_type() === "message";
 	}
 
@@ -295,8 +285,7 @@ class LineBotClass extends LINEBot
 	 * 友達追加のイベントタイプか判定
 	 * @return boolean 友達追加ならtrue それ以外ならfalse
 	 */
-	public function is_follow_event_type()
-	{
+	public function is_follow_event_type() {
 		return $this->get_event_type() === "follow";
 	}
 
@@ -304,8 +293,7 @@ class LineBotClass extends LINEBot
 	 * 友達ブロックのイベントタイプか判定
 	 * @return boolean 友達ブロックならtrue それ以外ならfalse
 	 */
-	public function is_unfollow_event_type()
-	{
+	public function is_unfollow_event_type() {
 		return $this->get_event_type() === "unfollow";
 	}
 
@@ -313,8 +301,7 @@ class LineBotClass extends LINEBot
 	 * グループまたはルーム参加のイベントタイプか判定
 	 * @return boolean グループまたはルーム参加ならtrue それ以外ならfalse
 	 */
-	public function is_join_event_type()
-	{
+	public function is_join_event_type() {
 		return $this->get_event_type() === "join";
 	}
 
@@ -322,8 +309,7 @@ class LineBotClass extends LINEBot
 	 * グループまたはルームからの退会のイベントタイプか判定
 	 * @return boolean グループまたはルームからの退会ならtrue それ以外ならfalse
 	 */
-	public function is_leave_event_type()
-	{
+	public function is_leave_event_type() {
 		return $this->get_event_type() === "leave";
 	}
 
@@ -331,8 +317,7 @@ class LineBotClass extends LINEBot
 	 * ポストバックのイベントタイプか判定
 	 * @return boolean ポストバックならtrue それ以外ならfalse
 	 */
-	public function is_postback_event_type()
-	{
+	public function is_postback_event_type() {
 		return $this->get_event_type() === "postback";
 	}
 
@@ -346,8 +331,7 @@ class LineBotClass extends LINEBot
 	 * leave    グループまたはルームからの退会
 	 * postback ポストバック
 	 */
-	public function get_event_type()
-	{
+	public function get_event_type() {
 		return $this->event->getType();
 	}
 
@@ -355,8 +339,7 @@ class LineBotClass extends LINEBot
 	 * 送信元タイプを取得
 	 * @return string user room group
 	 */
-	public function get_event_sonrce_type()
-	{
+	public function get_event_sonrce_type() {
 		return $this->event->getEventSourceType();
 	}
 
@@ -364,8 +347,7 @@ class LineBotClass extends LINEBot
 	 * 送信元のユーザーidを取得
 	 * @return string ユーザーid
 	 */
-	public function get_user_id()
-	{
+	public function get_user_id() {
 		return $this->event->getUserId();
 	}
 
@@ -373,8 +355,7 @@ class LineBotClass extends LINEBot
 	 * 送信元のグループidを取得
 	 * @return string グループid
 	 */
-	public function get_group_id()
-	{
+	public function get_group_id() {
 		return $this->event->getGroupId();
 	}
 
@@ -382,8 +363,7 @@ class LineBotClass extends LINEBot
 	 * 送信元のルームidを取得
 	 * @return string ルームid
 	 */
-	public function get_room_id()
-	{
+	public function get_room_id() {
 		return $this->event->getRoomId();
 	}
 
@@ -394,8 +374,7 @@ class LineBotClass extends LINEBot
 	 * ルームからならroom_id (get_room_id()と同等)
 	 * @return string id
 	 */
-	public function get_event_source_id()
-	{
+	public function get_event_source_id() {
 		return $this->event->getEventSourceId();
 	}
 
@@ -411,12 +390,11 @@ class LineBotClass extends LINEBot
 	 *  "statusMessage" => "ステータスメッセージ"
 	 * ]
 	 */
-	public function get_profile($user_id)
-	{
+	public function get_profile($user_id) {
 		$user_profile = $this->getProfile($user_id);
 		if ($user_profile->isSucceeded()) {
 			return $user_profile->getJSONDecodedBody();
-		}else{
+		} else {
 			$this->set_error("取得できませんでした");
 			return false;
 		}
@@ -428,12 +406,11 @@ class LineBotClass extends LINEBot
 	 * @param  [type] $user_id  ユーザーid
 	 * @return [type]           ユーザーデータ
 	 */
-	public function get_group_user_profile($group_id,$user_id)
-	{
+	public function get_group_user_profile($group_id,$user_id) {
 		$user_profile = $this->getGroupMemberProfile($group_id,$user_id);
 		if ($user_profile->isSucceeded()) {
 			return $user_profile->getJSONDecodedBody();
-		}else{
+		} else {
 			$this->set_error("取得できませんでした");
 			return false;
 		}
@@ -443,12 +420,11 @@ class LineBotClass extends LINEBot
 	 * 送信されたコンテンツのバイナリデータを取得
 	 * @return  成功ならバイナリデータ 失敗ならfalse
 	 */
-	public function get_content()
-	{
+	public function get_content() {
 		$response  = $this->getMessageContent($this->get_message_id());
 		if ($response->isSucceeded()) {
 			return $response->getRawBody();
-		}else{
+		} else {
 			$this->set_error("取得できませんでした");
 			return false;
 		}
@@ -459,8 +435,7 @@ class LineBotClass extends LINEBot
 	 * @param  string $text 送信するテキストメッセージ
 	 * @return bool         成功ならtrue 失敗ならfalse
 	 */
-	public function add_text_builder($text,$actions=array())
-	{
+	public function add_text_builder($text,$actions=array()) {
 		// ビルダーストックの数が既に５つ以上ならエラー
 		if (count($this->builder_stok) >= 5) {
 			$this->set_error("一度に送信できるメッセージは5件までです");
@@ -472,7 +447,7 @@ class LineBotClass extends LINEBot
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
 					$quick_replys[] = $value;
-				}else{
+				} else {
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
 				}
