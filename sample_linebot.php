@@ -62,11 +62,23 @@ try {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
+/*送られてきた位置情報を表示
+APIに送信されてきた緯度経度を渡し、検索する。
+*/
 			foreach ($locaation as $loco) {
 				$locaation_test .= $loco;
 			}
+			$url = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$loco['latitude']&lng=$loco['longitude']';
+			$json = file_get_contents($url);
+			$json = mb_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
+			$data = json_decode($json, true);
+
+
+
+
+
 			// メッセージを追加
-			$bot->add_text_builder($locaation_test);
+			$bot->add_text_builder($data);
 		}
 
 		// 画像メッセージの追加
