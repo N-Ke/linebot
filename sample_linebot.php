@@ -73,9 +73,10 @@ APIに送信されてきた緯度経度を渡し、検索する。
 			$json = file_get_contents($url);
 			$json = mv_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
 			$data = json_decode($json, true);*/
+$stmt = "aa";
 			//テキスト追加
-			$bot->add_text_builder($locaation);
-$bot->reply($locaation);
+			$bot->add_text_builder($stmt);
+$bot->reply($stmt);
 
 		}
 
