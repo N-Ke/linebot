@@ -68,20 +68,15 @@ APIに送信されてきた緯度経度を渡し、検索する。
 			foreach ($locaation as $locoo) {
 				$loco = $locoo;
 			}
-			$url = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$loco['latitude']&lng=$loco['longitude']';
+			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$loco['latitude']&lng=$loco['longitude']";
 			$json = file_get_contents($url);
 			$json = mb_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
 			$data = json_decode($json, true);
 if (empty($data)) {
 $data = "空です";
 }
-
-
-
-
-
 			// メッセージを追加
-			$bot->add_text_builder($data);
+			$bot->add_text_builder($url);
 		}
 
 		// 画像メッセージの追加
