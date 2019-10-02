@@ -72,10 +72,11 @@ APIに送信されてきた緯度経度を渡し、検索する。
 			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$loco['latitude']&lng=$loco['longitude']&range=5&order=4";
 			$json = file_get_contents($url);
 			$json = mv_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
-//
 			$data = json_decode($json, true);*/
+			if (isset($date)) {
 			//テキスト追加
-			$bot->add_text_builder($data);
+				$bot->add_text_builder("aa");
+			}
 		}
 
 		// 画像メッセージの追加
