@@ -26,6 +26,7 @@ try {
 			$actions = test_quick_action();
 			$bot->add_text_builder($text);
 		}
+//テスト
 
 		if ($messeage_type !== false) {
 			// $bot->add_text_builder("メッセージタイプ:" . $messeage_type);
