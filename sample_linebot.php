@@ -81,17 +81,7 @@ try {
 
 			//送信するフロー
 			//curlセッションの初期化
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-			curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
-			curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($conn, CURLOPT_POST, true);
-			curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($data));
-
-			$result=curl_exec($ch);
-			curl_close($ch);
-			$bot->add_text_builder($result);
+			$bot->add_text_builder($data);
 			}
 		}
 
