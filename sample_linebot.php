@@ -70,7 +70,7 @@ $lat = $loccation_test['latitude'];
 $long = $locaation_test['longitude'];
 //位置情報を取得できている。
 
-			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$lat&lng=$long&range=5&order=4&format=json";
+			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$lat&lng=$long&range=5&order=4";
 			//情報を取得
 			$xml = file_get_contents($url);
 			//jsonに変換
