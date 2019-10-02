@@ -78,7 +78,7 @@ $long = $locaation_test['longitude'];
 			//配列として取得
 			$data = json_decode(json_encode($obj), true);
 foreach ($data as $sub) {
-$info = $sub;
+$info .= $sub;
 }
 
 			//送信するフロー
