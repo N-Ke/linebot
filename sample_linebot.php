@@ -72,7 +72,7 @@ $long = $locaation_test['longitude'];
 			$json = json_decode(file_get_contents('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=35.696274&lng=139.74149&format=json&order=4'));
 			//送信するフロー
 			$bot->add_text_builder($json);
-			$bot->get_error($json);
+			$bot->get_error();
 
 		}
 
