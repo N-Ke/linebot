@@ -69,17 +69,12 @@ try {
 $lat = $loccation_test['latitude'];
 $long = $locaation_test['longitude'];
 //位置情報を取得できている。
-
-			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$lat&lng=$long&range=5&order=4";
-			//情報を取得
-			$xml = file_get_contents($url);
-			//jsonに変換
-			$obj = simplexml_load_string($xml);
-			//配列として取得
-			$data = json_decode(json_encode($obj), true);
-
+			$json = json_decode(file_get_contents('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=35.696274&lng=139.74149&format=json&order=4'));
+			foreach ($json->results->genre as $genre) {
+				$name = $genre->name;
+			}
 			//送信するフロー
-			$bot->add_text_builder($data['results']);
+			$bot->add_text_builder($name);
 		}
 
 		// 画像メッセージの追加
