@@ -77,12 +77,9 @@ $long = $locaation_test['longitude'];
 			$obj = simplexml_load_string($xml);
 			//配列として取得
 			$data = json_decode(json_encode($obj), true);
-foreach ($data as $sub) {
-$info .= $sub;
-}
 
 			//送信するフロー
-			$bot->add_text_builder($info);
+			$bot->add_text_builder($data['results']);
 		}
 
 		// 画像メッセージの追加
