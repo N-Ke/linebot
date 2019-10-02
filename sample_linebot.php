@@ -81,7 +81,7 @@ try {
 
 			//送信するフロー
 			//curlセッションの初期化
-			$bot->add_text_builder($data);
+			$bot->add_text_builder("aa");
 			}
 		}
 
