@@ -73,15 +73,14 @@ try {
 				$bot->add_text_builder("aa");
 			} else {
 			//情報を取得
-			$json = file_get_contents($url);
+			$xml = file_get_contents($url);
 			//jsonに変換
-			$json = mb_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
+			$obj = simplexml_load_string($xml);
 			//配列として取得
-			$data = json_decode($json, true);
+			$data = json_decode(json_encode($obj), true);
 
 			//送信するフロー
-			//curlセッションの初期化
-			$bot->add_text_builder("aa");
+			$bot->add_text_builder($data);
 			}
 		}
 
