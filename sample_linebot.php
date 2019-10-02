@@ -66,9 +66,12 @@ try {
                                  $locaation_test .= $locoo;
                         }
 
-//位置情報を取得できているか。
+//位置情報を取得できている。
 
-			/*$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$locaation_test['latitude']&lng=$locaation_test['longitude']&range=5&order=4";
+			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$locaation_test['latitude']&lng=$locaation_test['longitude']&range=5&order=4";
+			if (empty($url)) {
+				$bot->add_text_builder("aa");
+			} else {
 			//情報を取得
 			$json = file_get_contents($url);
 			//jsonに変換
@@ -77,15 +80,19 @@ try {
 			$data = json_decode($json, true);
 
 			//送信するフロー
-			$ch = curl_init($url);
+			//curlセッションの初期化
+			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($conn, CURLOPT_POST, true);
+			curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($data));
+
 			$result=curl_exec($ch);
 			curl_close($ch);
-			$data = json_decode($info, true);
-*/
-			$bot->add_text_builder($locaation_test);
+			$bot->add_text_builder($result);
+			}
 		}
 
 		// 画像メッセージの追加
