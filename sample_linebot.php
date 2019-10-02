@@ -66,13 +66,11 @@ try {
 			foreach ($locaation as $locoo) {
                                  $locaation_test .= $locoo;
                         }
-
+$lat = $loccation_test['latitude'];
+$long = $locaation_test['longitude'];
 //位置情報を取得できている。
 
-			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$locaation_test['latitude']&lng=$locaation_test['longitude']&range=5&order=4&format=json";
-			if (empty($url)) {
-				$bot->add_text_builder("aa");
-			} else {
+			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$lat&lng=$long&range=5&order=4&format=json";
 			//情報を取得
 			$xml = file_get_contents($url);
 			//jsonに変換
@@ -82,7 +80,6 @@ try {
 
 			//送信するフロー
 			$bot->add_text_builder($data);
-			}
 		}
 
 		// 画像メッセージの追加
