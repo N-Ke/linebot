@@ -69,7 +69,7 @@ try {
 
 //位置情報を取得できている。
 
-			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$locaation_test['latitude']&lng=$locaation_test['longitude']&range=5&order=4";
+			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$locaation_test['latitude']&lng=$locaation_test['longitude']&range=5&order=4&format=json";
 			if (empty($url)) {
 				$bot->add_text_builder("aa");
 			} else {
