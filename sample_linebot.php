@@ -66,21 +66,26 @@ try {
                                 $loco = $locoo;
                         }
 
-/*送られてきた位置情報を表示
-APIに送信されてきた緯度経度を渡し、検索する。
-*/
+//位置情報を取得できているか。
+
 			$url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=$loco['latitude']&lng=$loco['longitude']&range=5&order=4";
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $url);
+			//情報を取得
+			$json = file_get_contents($url);
+			//jsonに変換
+			$json = mb_convert_encoding($json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
+			//配列として取得
+			$data = json_decode($json, true);
+
+			//送信するフロー
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			$info = curl_getinfo($ch);
+			$result=curl_exec($ch);
 			curl_close($ch);
 			$data = json_decode($info, true);
-			if (isset($date)) {
 			//テキスト追加
-				$bot->add_text_builder("aa");
-			}
+				$bot->add_text_builder($loco);
 		}
 
 		// 画像メッセージの追加
