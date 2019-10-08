@@ -61,14 +61,15 @@ if ($eventType == 'message') {
 
 		$messageText = $jsonObj->{"events"}[0]->{"message"}->{"location"};
 
-		$response_format_text = array(
+		$response_format_text = [
 		"type" => "text",
 		"text" => "あああ"
-		);
-		$post_data = array(
-		"replyToken" => $replyToken,
-		"messages" => $response_format_text
-		);
+		];
+		$post_data = [
+			"replyToken" => $replyToken,
+			"messages" => [$response_format_text]
+		];
+
 
 	}
 }
