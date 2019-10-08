@@ -68,7 +68,6 @@ try {
                         }
 
 			$result = file_put_contents('text.txt', 'test');
-$bot->add_text_builder($locaation);
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
