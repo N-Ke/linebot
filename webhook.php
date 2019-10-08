@@ -28,26 +28,26 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    $client->replyMessage([
+                    $client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
-                        'messages' => [
-                            [
+                        'messages' => array(
+                            array(
                                 'type' => 'text',
                                 'text' => $message['text']
-                            ]
-                        ]
-                    ]);
+                            )
+                        
+                    ));
                     break;
 		case 'location';
-		     $client->replyMessage([
+		     $client->replyMessage(array(
 			'replyToken' => $event['replyToken'],
-			'message' => [
-		             [
+			'message' => array(
+		             (
 				'type' => 'location',
 				'text' => $message['location']
 			     
-		        ]
-		    ]);
+		        )
+		    ));
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
                     break;
