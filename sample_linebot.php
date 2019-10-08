@@ -64,7 +64,7 @@ try {
 			$locaation = $bot->get_location();
 			$locaation_test = "";
 			foreach ($locaation as $key => $value) {
-                                 $locaation_test .= $key . $value;
+                                 $locaation_test .= $value;
                         }
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
@@ -76,7 +76,7 @@ try {
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
-			$bot->add_text_builder($key . $value);
+			$bot->add_text_builder($locaation_test);
 		}
 
 		// 画像メッセージの追加
