@@ -76,7 +76,7 @@ try {
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 
-			$bot->add_text_builder($locaation);
+			$bot->add_text_builder($locoo);
 		}
 
 		// 画像メッセージの追加
