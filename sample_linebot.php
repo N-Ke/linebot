@@ -67,7 +67,7 @@ try {
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
-			$result = file_put_contents('text.txt', $locaation_test);
+			//$result = file_put_contents('text.txt', $locaation_test);
 
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
