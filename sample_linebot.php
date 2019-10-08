@@ -63,13 +63,12 @@ try {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
-$path = '/Users/nakashima/lineboter111/text.txt';
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
 
 			$result = file_put_contents('text.txt', 'test');
-$bot->add_text_builder($location);
+$bot->add_text_builder($locaation);
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
