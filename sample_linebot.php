@@ -1,4 +1,5 @@
 <?php
+$bot->add_text_builder($locaation);
 require_once __DIR__ . '/linebot.php';
 
 $bot = new LineBotClass();
@@ -66,7 +67,6 @@ try {
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
-$locaation_test = mb_convert_encoding($locaation_test,  'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 			$result = file_put_contents('text.txt', $locaation_test);
 
 			//$lat = $loccation_test['latitude'];
