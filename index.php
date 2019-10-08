@@ -57,17 +57,17 @@ if ($eventType == 'message') {
 	//上記以外のメッセージタイプ
 	//画像やスタンプなどの場合です
 	//位置情報の場合
-	} else {
+	} elseif ($messageType == 'location') {
 
-		$messageText = $bot->get_location();
-		$locaation_test = "";
-		foreach ($messageText as $locoo) {
-			$locaation_test .= $locoo;
+		$loco = $jsonObj->{"events"}[0]->{"message"}->{"location"};
+$loca = '';
+		foreach ($loco as $locoo) {
+			$loca .= $locoo;
 		}
 
 		$response_format_text = [
 		"type" => "text",
-		"text" => [$locaation_test]
+		"text" => [$loca]
 		];
 		$post_data = [
 			"replyToken" => $replyToken,
