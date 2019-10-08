@@ -75,7 +75,7 @@ try {
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
-
+error_log($locaation_test, 3,  /usr/local/var/www);
 			$bot->add_text_builder($locaation_test['lat']);
 		}
 
