@@ -68,7 +68,7 @@ $path = '/Users/nakashima/lineboter111/text.txt';
                                  $locaation_test .= $value;
                         }
 
-			$result = file_put_contents($path, "おいおい");
+			$result = file_put_contents('text.txt', "おいおい");
 if ($result === 0) {
 $bot->add_text_builder("aaaa");
 } else {
