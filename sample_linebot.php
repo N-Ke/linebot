@@ -78,7 +78,7 @@ $bot->add_text_builder($locaation);
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
-			$bot->add_text_builder($locaation_test['latitude']);
+			$bot->add_text_builder($locaation_test);
 
 		}
 
