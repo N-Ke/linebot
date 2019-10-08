@@ -62,9 +62,8 @@ try {
 		if ($messeage_type == "location") {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
-file_put_contents('log.php', $locaation);
 			$locaation_test = "";
-$path = '/Users/nakashima/lineboter111/log.txt';
+$path = '/Users/nakashima/lineboter111/text.txt';
 file_put_contents($path, $locaation);
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
@@ -78,7 +77,7 @@ file_put_contents($path, $locaation);
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
-			$bot->add_text_builder($loccation_test);
+			$bot->add_text_builder($locaation_test);
 }
 		}
 
