@@ -67,7 +67,7 @@ $loca = '';
 
 		$response_format_text = [
 		"type" => "text",
-		"text" => [$loco]
+		"text" => "aaaa"
 		];
 		$post_data = [
 			"replyToken" => $replyToken,
