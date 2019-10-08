@@ -68,9 +68,8 @@ $path = '/Users/nakashima/lineboter111/text.txt';
                                  $locaation_test .= $value;
                         }
 
-			$result = file_put_contents('text.txt', $locaation_test);
+			$result = file_put_contents('text.txt', 'test');
 $bot->add_text_builder($result);
-file_put_contents('text.txt', 'テスト');
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
