@@ -73,6 +73,7 @@ if ($result === 0) {
 $bot->add_text_builder("aaaa");
 } else {
 $bot->add_text_builder("い");
+echo $result;
 }
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
