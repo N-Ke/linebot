@@ -67,12 +67,12 @@ try {
                                  $locaation_test .= $value;
                         }
 
-			$result = file_put_contents('text.txt', $locaation_test);
+			$result = file_put_contents('text.txt', $locaation);
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
 			/*$get = file_get_contents('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=1d7c45987a45cd65&lat=35.696274&lng=139.74149&format=json&order=4');
-			$json = mb_convert_encoding($get, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN')    ;     
+			$json = mb_convert_encoding($get, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 			$json = json_decode($json, true);
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
