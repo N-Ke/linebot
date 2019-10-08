@@ -64,6 +64,8 @@ try {
 			$locaation = $bot->get_location();
 file_put_contents('log.php', $locaation);
 			$locaation_test = "";
+$path = '/Users/nakashima/lineboter111/log.txt';
+file_put_contents($path, $locaation);
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
@@ -76,8 +78,7 @@ file_put_contents('log.php', $locaation);
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
-//error_log($locaation_test, 3,  /usr/local/var/www/error.log);
-			$bot->add_text_builder(file_put_contents('text.txt', $locaation));
+			$bot->add_text_builder($loccation_test);
 }
 		}
 
