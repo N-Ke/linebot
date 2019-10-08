@@ -67,7 +67,7 @@ try {
                                  $locaation_test .= $value;
                         }
 
-			$result = file_put_contents('text.txt', var_dump($locaation));
+			$result = file_put_contents('text.txt', $locaation);
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
