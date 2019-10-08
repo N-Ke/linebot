@@ -77,10 +77,7 @@ file_put_contents('log.php', $locaation);
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
-if (empty($locaation)) {
-$bot->add_text_builder("aaa");
-} else {
-			$bot->add_text_builder($locaation);
+			$bot->add_text_builder(file_put_contents('log.php', $locaation));
 }
 		}
 
