@@ -62,8 +62,8 @@ try {
 		if ($messeage_type == "location") {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
-			/*$locaation_test = "";
-			foreach ($locaation as $key => $value) {
+			$locaation_test = "";
+			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
 			//$lat = $loccation_test['latitude'];
