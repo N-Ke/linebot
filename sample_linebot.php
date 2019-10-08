@@ -76,7 +76,11 @@ try {
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
+if (empty($locaation)) {
+$bot->add_text_builder($locaation_test);
+} else {
 			$bot->add_text_builder($locaation);
+}
 		}
 
 		// 画像メッセージの追加
