@@ -63,8 +63,8 @@ try {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
-			foreach ($locaation as $value) {
-                                 $locaation_test .= $value;
+			foreach ($locaation as $key => $value) {
+                                 $locaation_test .= $key . $value;
                         }
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
@@ -75,7 +75,7 @@ try {
 			//送信するフロー
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
-error_log($locaation_test, 3,  /usr/local/var/www/error.log);
+//error_log($locaation_test, 3,  /usr/local/var/www/error.log);
 			$bot->add_text_builder($locaation_test);
 		}
 
