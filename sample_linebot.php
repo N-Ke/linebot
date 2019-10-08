@@ -64,10 +64,11 @@ try {
 			$locaation = $bot->get_location();
 			$locaation_test = "";
 $path = '/Users/nakashima/lineboter111/text.txt';
-file_put_contents($path, 'aaaa');
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
+
+			file_put_contents($path, $locaation_test);
 			//$lat = $loccation_test['latitude'];
 			//$long = $locaation_test['longitude'];
 			//位置情報を取得できている。
