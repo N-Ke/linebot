@@ -85,6 +85,7 @@ if (empty($loco)) {
 			"messages" => [$response_format_text]
 		];
 
+}
 	}
 }
 
