@@ -63,7 +63,7 @@ try {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
-			foreach ($locaation as $key => $value) {
+			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
 			//$lat = $loccation_test['latitude'];
@@ -76,7 +76,7 @@ try {
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
-			$bot->add_text_builder($locaation_test['4']);
+			$bot->add_text_builder($locaation_test['1']);
 		}
 
 		// 画像メッセージの追加
