@@ -62,6 +62,7 @@ try {
 		if ($messeage_type == "location") {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
+file_put_contents('log.php', $locaation);
 			$locaation_test = "";
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
@@ -77,7 +78,7 @@ try {
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
 if (empty($locaation)) {
-$bot->add_text_builder($locaation_test);
+$bot->add_text_builder("aaa");
 } else {
 			$bot->add_text_builder($locaation);
 }
