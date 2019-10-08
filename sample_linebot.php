@@ -64,7 +64,7 @@ try {
 			$locaation = $bot->get_location();
 			$locaation_test = "";
 $path = '/Users/nakashima/lineboter111/text.txt';
-file_put_contents($path, $locaation);
+file_put_contents($path, 'aaaa');
 			foreach ($locaation as $value) {
                                  $locaation_test .= $value;
                         }
@@ -78,7 +78,7 @@ file_put_contents($path, $locaation);
 			$bot->add_text_builder($json['results']['shop']['0']['name']);*/
 
 			$bot->add_text_builder($locaation_test);
-}
+
 		}
 
 		// 画像メッセージの追加
