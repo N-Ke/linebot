@@ -59,11 +59,15 @@ if ($eventType == 'message') {
 	//位置情報の場合
 	} else {
 
-		$messageText = $jsonObj->{"events"}[0]->{"message"}->{"location"};
+		$messageText = $bot->get_location();
+		$locaation_test = "";
+		foreach ($messageText as $locoo) {
+			$locaation_test .= $locoo;
+		}
 
 		$response_format_text = [
 		"type" => "text",
-		"text" => [$messageText]
+		"text" => [$locaation_test]
 		];
 		$post_data = [
 			"replyToken" => $replyToken,
