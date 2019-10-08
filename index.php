@@ -63,7 +63,7 @@ if ($eventType == 'message') {
 
 		$response_format_text = [
 		"type" => "text",
-		"text" => "あああ"
+		"text" => [$messageText]
 		];
 		$post_data = [
 			"replyToken" => $replyToken,
