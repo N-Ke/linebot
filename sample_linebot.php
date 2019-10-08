@@ -77,6 +77,7 @@ try {
 
 //error_log($locaation_test, 3,  /usr/local/var/www/error.log);
 			$bot->add_text_builder($key);
+			$bot->add_text_builder($key);
 		}
 
 		// 画像メッセージの追加
