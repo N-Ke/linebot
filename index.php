@@ -64,7 +64,7 @@ $loca = '';
 		foreach ($loco as $locoo) {
 			$loca .= $locoo;
 		}
-
+if (empty($loco)) {
 		$response_format_text = [
 		"type" => "text",
 		"text" => "aaaa"
@@ -74,6 +74,16 @@ $loca = '';
 			"messages" => [$response_format_text]
 		];
 
+} else {
+
+		$response_format_text = [
+		"type" => "text",
+		"text" => [$loco]
+		];
+		$post_data = [
+			"replyToken" => $replyToken,
+			"messages" => [$response_format_text]
+		];
 
 	}
 }
